@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #330E83;
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    font-family: monospace;
+    font-size: 48px;
+}
+
+.container {
+    height: 78vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+#game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+    position: absolute;
+    z-index: 2;
+}
+
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    font-size: 12vmin;
+    background-color: bisque;
+    color: #B4182D;
+}
+/* .box:hover {
+    transform: scale(1.2);
+    border: 1px solid #212121;
+} */
+
+#new {
+    margin-top: 5%;
+    padding: 10px;
+    /* border: none; */
+    font-family: cursive;
+    border-radius: 15px;
+    font-size: xx-large;
+}
+
+#new:hover {
+    background-color: yellow;
+    transform: scale(1.2);
+}
+#new:active {
+    background-color: aqua;
+}
+
+#reset {
+    padding: 10px;
+    /* border: none; */
+    font-family: cursive;
+    border-radius: 15px;
+    font-size: x-large;
+}
+
+#reset:hover {
+    background-color: yellow;
+    transform: scale(1.2);
+}
+#reset:active {
+    background-color: red;
+}
+.isWinner {
+    height: 100vh;
+    width: 100vh;
+    margin: auto;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color:rgba(0, 0, 0, 0.2); */
+    backdrop-filter: blur(4px);
+    position: absolute;
+    z-index: 4;
+}
+.message {
+    font-size: 38px;
+    font-weight: 5rem;
+    font-family: 'Segoe UI';
+    color: black;
+}
+
+.hide {
+    display: none;
+}
