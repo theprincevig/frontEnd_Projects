@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #212121;
+    color: #fff;
+}
+
+h1 {
+    margin-top: 10%;
+    text-align: center;
+    font-family: 'Segoe UI';
+}
+
+#start {
+    margin-left: 45%;
+}
+button {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: cursive;
+    /* font-weight: 1rem; */
+    font-size: large;
+    border: none;
+}
+
+button:hover {
+    background-color: bisque;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+button:active {
+    background-color: skyblue;
+}
