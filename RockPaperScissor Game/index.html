@@ -7,34 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Rock Paper Scissor</h1>
-    <div class="choices">
-        <div class="choice" id="rock">
-            <img src="/FrontEnd/JS_Projects/rockPaperScissor/photo/rock.png" alt="Rock">
-        </div>
-        <div class="choice" id="paper">
-            <img src="/FrontEnd/JS_Projects/rockPaperScissor/photo/paper.png" alt="Paper">
-        </div>
-        <div class="choice" id="scissor">
-            <img src="/FrontEnd/JS_Projects/rockPaperScissor/photo/scissors.png" alt="Scissor">
-        </div>
-    </div>
-    
-    <div class="score-board">
-        <div class="score">
-            <p id="user-score">0</p>
-            <p>You</p>
-        </div>
-        <div class="score">
-            <p id="computer-score">0</p>
-            <p>PC</p>
-        </div>
-    </div>
+    <header class="main-heading">
+        <h1>Rock Paper Scissor</h1>
+    </header>
 
-    <div class="message-container">
-        <p id="message"></p>
-        <button class="reset-game">Reset</button>
-    </div>
+    <main>
+        <div class="game-container">
+            <section class="game-header">
+                <h2 class="game-title">Let's Play!</h2>
+            </section>
+    
+            <section class="results-display">
+                <h1 class="player-choice-txt">✊</h1>
+                <h1 class="vs-txt">VS</h1>
+                <h1 class="CPU-choice-txt">✊</h1>
+            </section>
+    
+            <section class="score-board">
+                <h4>Won : <span class="score-won-txt">0</span></h4>
+                <div class="divider-vertical"></div>
+                <h4>Draw : <span class="score-draw-txt">0</span></h4>
+                <div class="divider-vertical"></div>
+                <h4>Lost : <span class="score-lost-txt">0</span></h4>
+            </section>
+    
+            <secion class="options-choice">
+                <div class="option-wrapper">
+                    <button class="choice-btn" value="rock">✊</button>
+                    <h3 class="choice-label">Rock</h3>
+                </div>
+                <div class="option-wrapper">
+                    <button class="choice-btn" value="paper">✋</button>
+                    <h3 class="choice-label">Paper</h3>
+                </div>
+                <div class="option-wrapper">
+                    <button class="choice-btn" value="scissor">✌️</button>
+                    <h3 class="choice-label">Scissor</h3>
+                </div>
+            </secion>
+        </div>
+
+        <button class="reset-btn">Reset</button>
+    </main>
 </body>
 <script src="script.js"></script>
 </html>
