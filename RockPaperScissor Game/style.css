@@ -58,7 +58,11 @@ main {
     cursor: default;
 }
 
-.player-choice-txt, .CPU-choice-txt { font-size: 80px; }
+.player-choice-txt, .CPU-choice-txt {
+    font-size: 80px;
+    position: relative;
+}
+
 .player-choice-txt { transform: rotate(90deg) rotateY(180deg); }
 .CPU-choice-txt { transform: rotate(-90deg); }
 
@@ -128,3 +132,32 @@ main {
 .reset-btn:hover { opacity: 0.65; }
 .reset-btn:active { transform: scale(0.75); }
 /* END */
+
+/* EMOJIS ANIMATION */
+.user-emoji-animation {
+    animation: user-shake 0.4s ease alternate infinite;
+}
+@keyframes user-shake {
+    from {
+        bottom: 5px;
+        rotate: -5deg;
+    }
+    to {
+        bottom: -5px;
+        rotate: 5deg;
+    }
+}
+
+.CPU-emoji-animation {
+    animation: CPU-shake 0.4s ease alternate infinite;
+}
+@keyframes CPU-shake {
+    from {
+        bottom: 5px;
+        rotate: 5deg;
+    }
+    to {
+        bottom: -5px;
+        rotate: -5deg;
+    }
+}

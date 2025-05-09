@@ -1,32 +1,61 @@
 let userScore = 0;
-let computerScore = 0;
+let CPUscore = 0;
+let drawScore = 0;
 
 /* initializing variables */
-const choices = document.querySelectorAll(".choice");
-const message = document.getElementById('message');
-const reset = document.querySelector('.reset-game');
-const userCount = document.getElementById('user-score');
-const computerCount = document.getElementById('computer-score');
+const choices = document.querySelectorAll(".choice-btn");
+const message = document.querySelector('.game-title');
+const reset = document.querySelector('.reset-btn');
+const userCount = document.querySelector('.score-won-txt');
+const computerCount = document.querySelector('.score-lost-txt');
+const drawCount = document.querySelector('.score-draw-txt');
+
+const userEmoji = document.querySelector('.player-choice-txt');
+const CPUemoji = document.querySelector('.CPU-choice-txt');
 
 choices.forEach((choice) => {
     choice.addEventListener('click', () => {
-        const userChoice = choice.getAttribute('id');
-        playGame(userChoice);
+        choices.forEach((button) => {button.style.pointerEvents = 'none'});
+        message.textContent = "Playing....";
+        userEmoji.textContent = "✊";
+        CPUemoji.textContent = "✊";
+
+        const userChoice = choice.value;        
+        userEmoji.classList.add('user-emoji-animation');
+        CPUemoji.classList.add('CPU-emoji-animation');
+
+        setTimeout(() => {
+            userEmoji.textContent = setEmoji[userChoice];
+            playGame(userChoice);
+            choices.forEach((button) => button.style.pointerEvents = 'auto');
+
+            userEmoji.classList.remove('user-emoji-animation');
+            CPUemoji.classList.remove('CPU-emoji-animation');
+        }, 2000);        
     })
 });
 
 // generate computer random choice
-const genComputerChoice = function() {
+function genCpuChoice() {
     const options = ["rock", "paper", "scissor"];
     const randomIndex = Math.floor(Math.random() * 3);
     return options[randomIndex];
 }
 
-const playGame = function(user) {
-    const computer = genComputerChoice();
+const setEmoji = {
+    rock: "✊",
+    paper: "✋",
+    scissor: "✌️"
+}
+
+function playGame(user) {
+    const computer = genCpuChoice();
+    CPUemoji.textContent = setEmoji[computer];
 
     if (user === computer) {
         //draw
+        drawScore++;
+        drawCount.innerHTML = drawScore;
         drawGame();
 
     } else {
@@ -45,26 +74,21 @@ const playGame = function(user) {
     }
 }
 
-message.style.display = 'none';
-
-const drawGame = function() {
-    message.textContent = "Game was Draw, Try Again!!";
-    message.style.display = '';
+function drawGame() {
+    message.textContent = "Game Draw!";
 }
 
 // who won the game
-const isWinner = function(user) {
+function isWinner(user) {
     if (user) {
         userScore++;    // upadating by 1 continuously
         userCount.innerHTML = userScore;
-        message.textContent = "You Won the Game!!";
-        message.style.display = '';
+        message.textContent = "You Won!";
 
     } else {
-        computerScore++;    // upadating by 1 continuously
-        computerCount.innerHTML = computerScore;
-        message.textContent = "You Lose the Game!!";
-        message.style.display = '';
+        CPUscore++;    // upadating by 1 continuously
+        computerCount.innerHTML = CPUscore;
+        message.textContent = "You Lose!";
     }
 }
 
@@ -73,11 +97,17 @@ reset.addEventListener('click', () => {
     resetGame();
 });
 
-const resetGame = function() {
+function resetGame() {
     userScore = 0;
-    computerScore = 0;
+    CPUscore = 0;
+    drawScore = 0;
+
     userCount.innerHTML = userScore;
-    computerCount.innerHTML = computerScore;
-    message.textContent = '';
-    message.style.display = 'none';
+    userEmoji.innerHTML = setEmoji["rock"];
+
+    computerCount.innerHTML = CPUscore;
+    CPUemoji.innerHTML = setEmoji["rock"];
+
+    drawCount.innerHTML = drawScore;
+    message.textContent = "Let's Play!";
 }
